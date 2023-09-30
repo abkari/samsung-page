@@ -1,0 +1,691 @@
+/* ======================= Load Font(s) ======================= */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&family=Ubuntu:wght@500;700&display=swap');
+
+
+
+/* ======================= Global Style ======================= */
+:root
+{
+    /* Colors */
+    --soft-blue: #7145e0;
+    --soft-red: #c04a87;
+    --very-dark-purple: #3a0e63;
+
+    --text-color: #1a1a1a;
+
+    --white: #ffffff;
+    --black: #000000;
+
+    /* Font(s) */
+    --raleway-font: 'Raleway', sans-serif;
+    --ubuntu-font: 'Ubuntu', sans-serif;
+
+    --font-w-regular: 400;
+    --font-w-medium : 500;
+    --font-w-bold   : 700;
+
+    /* Sizes */
+    --container-pad: 24px;
+
+    --section-pad-lg: 60px;
+    --section-pad-md: 40px;
+
+    --section-pad: var(--section-pad-lg);
+
+    --big-title-size-lg: 60px;
+    --big-title-size-md: 40px;
+
+    --section-title-size-lg: 33px;
+    --section-title-size-md: 28px;
+    --section-title-size-sm: 24px;
+
+    --paragraph-font-size: 16px;
+
+    /* Values */
+    --menu-transition: 0.4s ease-in-out;
+    --btn-transition: 0.2s ease-in-out;
+
+}
+*, *::before, *::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--ubuntu-font);
+}
+li
+{
+    list-style: none;
+}
+a
+{
+    text-decoration: none;
+    display: inline-block;
+}
+input, button
+{
+    font-family: inherit;
+}
+img
+{
+    width: 100%;
+    object-fit: cover;
+}
+p
+{
+    font-family: var(--raleway-font);
+    font-size: var(--paragraph-font-size);
+    font-weight: var(--font-w-regular);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+p.font-w-md
+{
+    font-weight: var(--font-w-medium);
+}
+.container
+{
+    max-width: 1135px;
+    margin: 0 auto;
+}
+.logo
+{
+    width: 192px;
+    line-height: 0;
+}
+.m-pad
+{
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+}
+.big-title
+{
+    font-size: var(--big-title-size-lg);
+    color: var(--white);
+}
+a.btn
+{
+    font-family: var(--raleway-font);
+    font-size: 14px;
+    font-weight: var(--font-w-medium);
+    text-transform: uppercase;
+    border: 1px solid;
+    padding: 14px 45px;
+    border-radius: 99px;
+    background-color: transparent;
+    transition: var(--btn-transition);
+    min-width: 218px;
+    text-align: center;
+}
+a.white-btn
+{
+    color: var(--white);
+    border-color: var(--white);
+}
+a.white-btn:hover
+{
+    color: var(--black);
+    background-color: var(--white);
+}
+a.black-btn
+{
+    color: var(--black);
+    border-color: var(--black);
+}
+a.black-btn:hover
+{
+    color: var(--white);
+    background-color: var(--black);
+}
+.sec-title
+{
+    font-size: var(--section-title-size-lg);
+    font-weight: var(--font-w-bold);
+    color: var(--text-color);
+    text-align: center;
+}
+/* ======================= Start Main Header ======================= */
+#main-header
+{
+    padding: 22px 0;
+    background-color: var(--white);
+    position: relative;
+    z-index: 9;
+}
+#main-header .container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#main-header #hamburger-menu
+{
+    width: 24px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+#main-header #hamburger-menu span
+{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+}
+#main-header #menu-overlay
+{
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    visibility: hidden;
+    transition: var(--menu-transition);
+}
+#main-header #menu-overlay.open
+{
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: visible;
+}
+#main-header .menu-bar
+{
+    background-color: var(--black);
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -250px;
+    padding: 22px 20px;
+    transition: var(--menu-transition);
+}
+#main-header #menu-overlay.open .menu-bar
+{
+    left: 0px;
+}
+#main-header .menu-bar #close-btn
+{
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    margin-left: auto;
+}
+#main-header .menu-bar #close-btn span
+{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--white);
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    border-radius: 2px;
+}
+#main-header .menu-bar #close-btn span:nth-child(1)
+{
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+#main-header .menu-bar #close-btn span:nth-child(2)
+{
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+#main-header .menu-bar .navlinks
+{
+    padding-top: 30px;
+}
+#main-header .menu-bar .navlinks li
+{
+    text-align: center;
+}
+#main-header .menu-bar .navlinks li:not(:last-child)
+{
+    margin-bottom: 5px;
+}
+#main-header .menu-bar .navlinks a
+{
+    font-size: 18px;
+    font-weight: var(--font-w-medium);
+    color: var(--white);
+    padding: 5px;
+}
+
+/* ======================= Start Intro Section ======================= */
+#intro
+{
+    background-image: url("../imgs/intro-bg.png");
+    background-position: left center;
+    background-size: cover;
+}
+#intro.m-pad
+{
+    --scale: 2;
+    padding-top: calc(var(--section-pad) * var(--scale));
+}
+#intro .into-discover
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+#intro .intro-text-content
+{
+    max-width: 430px;
+    flex-shrink: 7;
+}
+#intro .intro-text-content p
+{
+    color: var(--white);
+    margin: 30px 0;
+}
+#intro .intro-image
+{
+    max-width: 568px;
+    flex-shrink: 5;
+    line-height: 0;
+}
+#intro .intro-advantages
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 55px;
+    margin-top: -65px;
+}
+#intro .advantage-box
+{
+    padding: 40px 20px;
+    background-color: var(--white);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+#intro .advantage-box h2
+{
+    font-size: 30px;
+    font-weight: var(--font-w-bold);
+}
+#intro .advantage-box:nth-child(1) h2
+{
+    color: var(--very-dark-purple);
+}
+#intro .advantage-box:nth-child(2) h2
+{
+    color: var(--soft-red);
+}
+#intro .advantage-box:nth-child(3) h2
+{
+    color: var(--soft-blue);
+}
+#intro .advantage-box p
+{
+    margin: 30px 0;
+    /* padding-right: 10px; */
+}
+#intro .advantage-box a
+{
+    color: var(--text-color);
+    font-size: 30px;
+}
+
+/* ======================= Start Galaxy Devices Section ======================= */
+#galaxy-devices .devices
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 100px;
+}
+#galaxy-devices .devices-col img
+{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+#galaxy-devices .devices-col h3
+{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* ======================= Start Galaxy Note9 Section ======================= */
+#galaxy-note9
+{
+    background-color: var(--soft-blue);
+    background-image: url("../imgs/galaxy-note9-image.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: right center;
+}
+#galaxy-note9.m-pad
+{
+    --scale: 2;
+    padding-top: calc(var(--section-pad) * var(--scale));
+    padding-bottom: calc(var(--section-pad) * var(--scale));
+}
+#galaxy-note9 .galaxy-note9-text-content
+{
+    max-width: 500px;
+}
+#galaxy-note9 .galaxy-note9-text-content p
+{
+    color: var(--white);
+    margin: 30px 0;
+}
+
+/* ======================= Start Connection Section ======================= */
+#devices-connection.m-pad
+{
+    --scale: 1.66;
+    padding-top: calc(var(--section-pad) * var(--scale));
+    padding-bottom: calc(var(--section-pad) * var(--scale));
+}
+#devices-connection .con-devices
+{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 100px;
+}
+#devices-connection .con-device-box
+{
+    max-width: 400px;
+}
+#devices-connection .con-device-box h3
+{
+    text-align: center;
+    font-size: 24px;
+    font-weight: var(--font-w-bold);
+    padding: 30px;
+}
+#devices-connection .con-device-box p
+{
+    text-align: center;
+}
+
+/* ======================= Start Galaxy Note9 Section : What else it can do ======================= */
+#galaxy-note9-wcd
+{
+    background-color: var(--black);
+    background-image: url("../imgs/galaxy-note9-wcd-image.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: left center;
+}
+#galaxy-note9-wcd.m-pad
+{
+    --scale: 1.5;
+    padding-top: calc(var(--section-pad) * var(--scale));
+    padding-bottom: calc(var(--section-pad) * var(--scale));
+}
+#galaxy-note9-wcd .galaxy-note9-wcd-text-content
+{
+    max-width: 500px;
+    margin-left: auto;
+}
+#galaxy-note9-wcd .galaxy-note9-wcd-text-content p
+{
+    color: var(--white);
+    margin: 30px 0;
+}
+
+/* ======================= Start Gear IconX Section ======================= */
+#gear-iconx .description
+{
+    max-width: 820px;
+    margin: 30px auto 80px;
+    text-align: center;
+}
+#gear-iconx img
+{
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ======================= Start Tablet, mobility and PC power Section ======================= */
+#tmp-power
+{
+    background-color: var(--soft-red);
+    background-image: url("../imgs/tmp-power-image.png");
+    background-repeat: no-repeat;
+    background-size: 55%;
+    background-position: right -40px center;
+}
+#tmp-power.m-pad
+{
+    --scale: 2;
+    padding-top: calc(var(--section-pad) * var(--scale));
+    padding-bottom: calc(var(--section-pad) * var(--scale));
+}
+#tmp-power .tmp-power-text-content
+{
+    max-width: 500px;
+}
+#tmp-power .tmp-power-text-content p
+{
+    color: var(--white);
+    margin: 30px 0;
+}
+
+/* ======================= Start More About Galaxy Note9 Section ======================= */
+#galaxy-note9-learn-more .about-galaxy-note9
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+#galaxy-note9-learn-more .sec-title
+{
+    text-align: left;
+    max-width: 600px;
+    margin-left: 50px;
+}
+#galaxy-note9-learn-more .big-title
+{
+    color: var(--text-color);
+    padding: 100px 0 50px;
+    max-width: 500px;
+}
+
+/* ======================= Responsive Design ======================= */
+@media (max-width : 1200px)
+{
+    .container
+    {
+        max-width: 960px;
+    }
+}
+@media (max-width : 992px)
+{
+    body
+    {
+        --section-pad: var(--section-pad-md);
+    }
+    .container
+    {
+        max-width: 	720px;
+    }
+    .big-title {
+        font-size: var(--big-title-size-md);
+    }
+    .sec-title {
+        font-size: var(--section-title-size-md);
+    }
+    #intro .intro-text-content p {
+        margin: 20px 0;
+    }
+    #intro .intro-advantages {
+        gap: 30px;
+        margin-top: -10px;
+    }
+    #intro .advantage-box h2 {
+        font-size: 24px;
+    }
+    #intro .advantage-box p {
+        margin: 20px 0;
+    }
+    #galaxy-devices .devices {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 60px;
+    }
+    #galaxy-note9 .galaxy-note9-text-content {
+        max-width: 400px;
+    }
+    #galaxy-note9 .galaxy-note9-text-content p {
+        margin: 20px 0;
+    }
+    #devices-connection .con-devices {
+        gap: 40px;
+        margin-top: 80px;
+    }
+    #galaxy-note9-wcd {
+        background-size: 60%;
+        background-position: left -130px center;
+    }
+    #galaxy-note9-wcd .galaxy-note9-wcd-text-content {
+        max-width: 366px;
+    }
+    #gear-iconx img {
+        max-width: 600px;
+    }
+    #tmp-power .tmp-power-text-content {
+        max-width: 350px;
+    }
+    #tmp-power {
+        background-size: 65%;
+        background-position: right -70px center;
+    }
+    #galaxy-note9-learn-more .sec-title {
+        text-align: left;
+        max-width: 320px;
+        margin-left: 50px;
+    }
+    #galaxy-note9-learn-more .big-title {
+        padding: 60px 0 30px;
+        max-width: 350px;
+    }
+}
+@media (max-width : 768px)
+{
+    .container
+    {
+        max-width: 	540px;
+    }
+    .sec-title
+    {
+        font-size: var(--section-title-size-sm);
+    }
+    #intro .into-discover {
+        flex-direction: column;
+        gap: 40px;
+    }
+    #intro .intro-text-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #intro .intro-text-content h1,
+    #intro .intro-text-content p
+    {
+        text-align: center;
+    }
+    #intro .intro-image {
+        max-width: 468px;
+    }
+    #intro .intro-advantages {
+        flex-direction: column;
+        align-items: center;
+        margin-top: -65px;
+    }
+    #intro .advantage-box {
+     max-width: 300px;
+    }
+    #galaxy-devices .devices {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 40px;
+        padding: 0 30px;
+    }
+    #galaxy-note9 {
+        background-size: 100%;
+        background-position: center bottom;
+        height: 800px;
+    }
+    #devices-connection .con-devices {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
+    #devices-connection .con-device-box h3 {
+        font-size: 20px;
+        padding: 20px;
+    }
+    #galaxy-note9-wcd {
+        background-size: 100%;
+        background-position: center top;
+        height: 880px;
+        display: flex;
+    }
+    #galaxy-note9-wcd .container
+    {   
+        align-self: flex-end;
+    }
+    #galaxy-note9 .galaxy-note9-text-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #galaxy-note9 .galaxy-note9-text-content h1,
+    #galaxy-note9 .galaxy-note9-text-content p
+    {
+        text-align: center;
+    }
+    #galaxy-note9-wcd .galaxy-note9-wcd-text-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #galaxy-note9-wcd .galaxy-note9-wcd-text-content h1,
+    #galaxy-note9-wcd .galaxy-note9-wcd-text-content p
+    {
+        text-align: center;
+    }
+    #tmp-power {
+        background-size: 100%;
+        background-position: center bottom;
+        height: 700px;
+    }
+    #tmp-power .tmp-power-text-content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #tmp-power .tmp-power-text-content h1,
+    #tmp-power .tmp-power-text-content p
+    {
+        text-align: center;
+    }
+    #galaxy-note9-learn-more .about-galaxy-note9 {
+        flex-direction: column;
+    }
+    #galaxy-note9-learn-more .sec-title {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+@media (max-width : 576px)
+{
+    .container
+    {
+        max-width: 	100%;
+        padding-left: var(--container-pad);
+        padding-right: var(--container-pad);
+    }
+}
